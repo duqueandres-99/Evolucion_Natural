@@ -1,13 +1,16 @@
 <?php
-    $servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "mhi";
-	
-	// Crear conexión
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	$sql = "SELECT * FROM usuarios";
-	$sqli = "SELECT * FROM inventario";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mhi";
+
+// Crear conexión
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+$sql = "SELECT * FROM usuarios";
+$sqli = "SELECT * FROM usuarios";
+
+session_start();
+
 ?>
 
 
@@ -36,7 +39,6 @@
 		<link href="css/style.css" rel="stylesheet">
 		<title>Evolucion Natural </title>
 
-	
 
 
       
@@ -53,11 +55,6 @@
     <!--font awesome con CDN-->  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
       
-
-
-
-
-
 
 	</head>
 
@@ -124,328 +121,52 @@
 
 		
 
-		<br><br><br><br><h1 class="text-center">Usuarios registrados</h1><br><br>
-		
-
-		
-
-
-
-
-
-		<div class="row">
-                <div class="col-lg-12">
-                    <div class="table-responsive"> 
-
-			<table id="myTableu" class="table table-striped table-bordered" cellspacing="0" width="100%">
-    		<thead>
-        		<tr>
-					<th>#</th>
-					<th>Nombre de usuario</th>
-            		<th>Nombres</th>
-					<th>Apellidos</th>
-					<th>Direccion</th>
-					<th>Correo</th>
-					<th>Telefono</th>
-					<th>Cantidad de huertos</th>
-					<th>Acciones</th>
-        		</tr>
-    		</thead>
-    		<tbody>
-			
-			<?php
-
-			$item = 1;
-
-if (mysqli_query($conn, $sql)) {
-	$resultado = mysqli_query($conn, "SELECT * FROM usuarios");
-	while($consulta = mysqli_fetch_array($resultado)){
+		<div class="blog-section">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-md-6">
+						<h2 class="section-title">Detalle de los datos del articulo</h2>
+					</div>
+					<div class="col-md-6 text-start text-md-end">
+						<a href="headerM.php" class="more">Volver al panel</a>
+					</div>
+				</div>
 
 
 
-echo "<tr>";
-echo "<td><br><br>";
-echo $item++;
-echo "</td>";
-echo "<td>";
+                <h5><u>Datos del articulo</u></h5>
 
+                <?php
+            
+                $idi = $_POST['idi'];     
 
-							
-
-    echo "<br><br>";	
-    echo $consulta['Nombre_usuario'];
-							    
-
-
-echo "</td>";
-
-echo "<td>";
-            					
-
+                if (mysqli_query($conn, $sql)) {
+                    $resultadoi = mysqli_query($conn, "SELECT * FROM inventario WHERE `ID_Categoria` = '$idi'");
+                    while($consultai = mysqli_fetch_array($resultadoi)){
+                        
+                         echo " - Categoria: ";
+                        echo $consultai['Categoria'];
+                        echo '<br>';
+                        echo " - Nombre del articulo: ";
+                        echo $consultai['Nombre_del_articulo'];
+                        echo '<br>';
+                        echo " - Stock: ";
+                        echo $consultai['Cantidad_disponible'];
+                        echo '<br>';
+                        echo " - Precio: ";
+                        echo $consultai['Precio'];
+                        echo '<br>';
+                        echo '<br>';
+                        
+                        }
+                }
     
-
-    echo '<br><br>';
-    echo $consulta['Nombres'];
-								
-
-						
-echo "</td>";
-						
-echo "<td>";
-            					
-
-    
-
-    echo '<br><br>';
-    echo $consulta['Apellidos'];
-								
-
-						
-echo "</td>";
-
-echo "<td>";
-            					
-
-    
-
-    echo '<br><br>';
-    echo $consulta['Direccion'];
-								
-
-						
-echo "</td>";
-
-echo "<td>";
-            					
-
-    
-
-	echo '<br><br>';
-	echo $consulta['Correo'];
-							
-
-						
-echo "</td>";
-
-echo "<td>";
-            					
-
-	
-
-    echo '<br><br>';
-    echo $consulta['Telefono'];
-								
-
-						
-echo "</td>";
-
-echo "<td>";
-            					
-
-    
-
-    echo "<br><br>";
-    echo $consulta['Cantidad_de_huertos'];
-	$id = $consulta['ID_Usuario'];							
-
-						
-echo "</td>";
-
-			
-
-echo "<td>";
-	
-	echo "<table>";
-	echo "<tr>";
-	echo "<form action='EditarA.php?ed' method='post'>";
-		echo '<td><i class="fa-solid fa-pen"></i></td>';
-		echo '<td><button>Editar</button></td>';
-		echo '<input type="text" class="valorEnv" id="id" value="'.$id.'" name="id" visibility: hidden>';
-		echo "</form>";
-	echo "</tr>";
-
-
-	echo "<tr>";
-	echo "<form action='detalleuA.php' method='post'>";
-		echo '<td><i class="fa-solid fa-magnifying-glass"></i></td>';
-		echo '<td><button>Examinar</button></td>';
-		echo '<input type="text" class="valorEnv" id="id" value="'.$id.'" name="id" visibility: hidden>';
-		echo "</form>";
-	echo "</tr>";
-
-
-
-
-
-	echo "</table>";
-	
-echo "</td>";
-
-echo "</tr>";
-
-	}
-}
-
-?>
-
-    		</tbody>
-		</table>
-
-		<button style="menu" type="button" class="btn btn-primary ml-2 mb-2"><a class="nav-link" href="crearUA.php"><i class="fa-solid fa-user-plus"></i> Crear usuario</a></button>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-<br><br><br><br><h1 class="text-center">Productos en inventario</h1><br><br>
-
-<div class="row">
-                <div class="col-lg-12">
-                    <div class="table-responsive">  
-<table id="myTablei" class="table table-striped table-bordered" cellspacing="0" width="100%">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Categoria</th>
-			<th>Nombre del articulo</th>
-			<th>Cantidad disponible</th>
-			<th>Precio</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php
-
-$itemi = 1;
-
-if (mysqli_query($conn, $sqli)) {
-$resultadoi = mysqli_query($conn, "SELECT * FROM inventario");
-while($consultai = mysqli_fetch_array($resultadoi)){
-
-
-
-echo "<tr>";
-echo "<td><br><br><br>";
-echo $itemi++;
-echo "</td>";
-echo "<td>";
-
-
-					
-
-echo "<br><br><br>";	
-echo $consultai['Categoria'];
-						
-
-
-echo "</td>";
-
-echo "<td>";
-						
-
-
-
-echo '<br><br><br>';
-echo $consultai['Nombre_del_articulo'];
-						
-
-				
-echo "</td>";
-				
-echo "<td>";
-						
-
-
-
-echo '<br><br><br>';
-echo $consultai['Cantidad_disponible'];
-						
-
-				
-echo "</td>";
-
-echo "<td>";
-						
-
-
-
-echo '<br><br><br>';
-echo $consultai['Precio'];
-$idi = $consultai['ID_Categoria'];					
-
-				
-echo "</td>";
-
-
-
-echo "<td>";
-
-echo "<table>";
-
-echo "<tr>";
-echo "<form action='store.php' method='post'>";
-	echo '<td><i class="fa-solid fa-trash-can"></i></i></td>';
-	echo '<td><button>Eliminar</button></td>';
-	echo '<input type="text" class="valorEnv" id="idi" value="'.$idi.'" name="idi" visibility: hidden>';
-	echo '<input type="text" class="valorEnv" id="idi" value="Eliminarpa" name="act" visibility: hidden>';
-	echo "</form>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<form action='EditarpA.php' method='post'>";
-	echo '<td><i class="fa-solid fa-pen"></i></td>';
-	echo '<td><button>Editar</button></td>';
-	echo '<input type="text" class="valorEnv" id="idi" value="'.$idi.'" name="idi" visibility: hidden>';
-	echo "</form>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<form action='detallepA.php' method='post'>";
-	echo '<td><i class="fa-solid fa-magnifying-glass"></i></td>';
-	echo '<td><button>Examinar</button></td>';
-	echo '<input type="text" class="valorEnv" id="idi" value="'.$idi.'" name="idi" visibility: hidden>';
-	echo "</form>";
-echo "</tr>";
-echo "</table>";
-echo "</td>";
-			
-echo "</tr>";
-
-}
-}
-
-?>
-	</tbody>
-</table>
-
-<button style="menu" type="button" class="btn btn-primary ml-2 mb-2"><a class="nav-link" href="crearPa"><i class="fa-solid fa-circle-plus"></i> Añadir articulo</a></button>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-		<script> 
-
-			var tablau = document.querySelector("#myTableu");
-
-			var dataTable = new DataTable(tablau);
-
-			var tablai = document.querySelector("#myTablei");
-
-			var dataTable = new DataTable(tablai);
-		
-		</script>
-
-
+            ?>
+
+<form method="post" action="EditarpM.php">
+<input type="text" class="valorEnv" id="idi" value="<?=$idi?>" name="idi" visibility: hidden>
+<input style="menu" type="submit" class="btn btn-primary ml-2 mb-2" value="Actualizar datos">
+</form>
 		
 
 		<!-- Start Blog Section -->
@@ -565,7 +286,7 @@ echo "</tr>";
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
-		<script src="js/main.js"></script>
+
 
 		<!-- jQuery, Popper.js, Bootstrap JS -->
 		<script src="jquery/jquery-3.3.1.min.js"></script>
@@ -585,9 +306,14 @@ echo "</tr>";
     <!-- código JS propìo-->    
     <script type="text/javascript" src="main.js"></script>  
 
+
 	</body>
 
 </html>
+
+
+
+
 
 
 
