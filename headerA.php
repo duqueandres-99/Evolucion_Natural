@@ -397,7 +397,7 @@ echo "<form action='store.php' method='post'>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<form action='EditarpM.php' method='post'>";
+echo "<form action='EditarpA.php' method='post'>";
 	echo '<td><i class="fa-solid fa-pen"></i></td>';
 	echo '<td><button>Editar</button></td>';
 	echo '<input type="text" class="valorEnv" id="idi" value="'.$idi.'" name="idi" visibility: hidden>';
