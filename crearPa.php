@@ -71,7 +71,7 @@ session_start();
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-0 mb-md-0">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li >
 							<a class="nav-link" href="index.html">Inicio</a>
 						</li>
@@ -79,10 +79,10 @@ session_start();
 						<li><a class="nav-link" href="services.html">Servicios</a></li>
 						<li><a class="nav-link" href="about.html">Quienes somos</a></li>
 						<li><a class="nav-link" href="blog.html">Nuestra comunidad</a></li>
-						
+
 						<ul class="custom-navbar-cta navbar-nav mb-0 mb-md-0 ms-0">
 							<li><img src="images/user.svg"></li>
-							<li><b>MASTER</b></li>
+							<li><b>Administrador</b></li>
 							</ul>
 
 					</ul>
@@ -91,11 +91,6 @@ session_start();
 
 							<li><a class="nav-link" href="login.html"><i class="fa-solid fa-right-from-bracket"></i></a></li>
 						</ul>
-
-					
-
-					
-
 				</div>
 			</div>
 				
@@ -114,13 +109,15 @@ session_start();
 						</div>
 						<div class="col-lg-6">
 							<div class="hero-img-wrap">
-								<img src="images/suculentaMaster.png" class="img-fluid" width="400" >
+								<img src="images/suculentaA.png" class="img-fluid"  >
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		<!-- End Hero Section -->
+
+		
 
 		
 
@@ -131,7 +128,7 @@ session_start();
 						<h2 class="section-title">Crear articulo</h2>
 					</div>
 					<div class="col-md-6 text-start text-md-end">
-						<a href="headerM.php" class="more">Volver al panel</a>
+						<a href="headerA.php" class="more">Volver al panel</a>
 					</div>
 				</div>
 
@@ -228,7 +225,7 @@ session_start();
 
 </div>
 
-  <input type="text" class="valorEnv" id="valorEnvp" value="Crearp" name="act" visibility: hidden>
+  <input type="text" class="valorEnv" id="valorEnvp" value="Crearpa" name="act" visibility: hidden>
   <input type="text" class="valorEnv" id="valorEnvp" value="<?=$idi?>" name="idi" visibility: hidden>
 
   <div class="col-4">

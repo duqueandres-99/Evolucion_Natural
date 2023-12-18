@@ -128,7 +128,7 @@ session_start();
 						<h2 class="section-title">Detalle de los datos del articulo</h2>
 					</div>
 					<div class="col-md-6 text-start text-md-end">
-						<a href="headerM.php" class="more">Volver al panel</a>
+						<a href="headerA.php" class="more">Volver al panel</a>
 					</div>
 				</div>
 
@@ -163,7 +163,7 @@ session_start();
     
             ?>
 
-<form method="post" action="EditarpM.php">
+<form method="post" action="EditarpA.php">
 <input type="text" class="valorEnv" id="idi" value="<?=$idi?>" name="idi" visibility: hidden>
 <input style="menu" type="submit" class="btn btn-primary ml-2 mb-2" value="Actualizar datos">
 </form>

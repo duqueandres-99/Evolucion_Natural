@@ -423,7 +423,7 @@ echo "</tr>";
 	</tbody>
 </table>
 
-<button style="menu" type="button" class="btn btn-primary ml-2 mb-2"><a class="nav-link" href="crearPa"><i class="fa-solid fa-circle-plus"></i> Añadir articulo</a></button>
+<button style="menu" type="button" class="btn btn-primary ml-2 mb-2"><a class="nav-link" href="crearPa.php"><i class="fa-solid fa-circle-plus"></i> Añadir articulo</a></button>
 
 			</div>
 		</div>

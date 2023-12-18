@@ -142,7 +142,7 @@ if($accion == "Editarp"){
     
 }
 
-if($accion == "Editarpa"){
+if($accion == "EditarpA"){
 
     $categoria = $_POST['categoria']; 
     $articulo = $_POST['Nombre_art'];
@@ -183,6 +183,19 @@ if($accion == "Crearp"){
 
     $obj->nuevoArticulo($categoria,$articulo,$cantidad,$precio);
     header("Location:headerM.php?act=".$accion);
+}
+
+if($accion == "Crearpa"){
+    $categoria = $_POST['categoria']; 
+    $articulo = $_POST['Nombre_art'];
+    $cantidad = $_POST['cantidad'];
+    $precio = $_POST['precio'];
+
+    $accion = $_POST['act'];
+
+
+    $obj->nuevoArticulo($categoria,$articulo,$cantidad,$precio);
+    header("Location:headerA.php?act=".$accion);
 }
 
 ?>

@@ -128,7 +128,7 @@ session_start();
 						<h2 class="section-title">Editar articulo</h2>
 					</div>
 					<div class="col-md-6 text-start text-md-end">
-						<a href="headerM.php" class="more">Volver al panel</a>
+						<a href="headerA.php" class="more">Volver al panel</a>
 					</div>
 				</div>
 
@@ -255,7 +255,7 @@ session_start();
 
 </div>
 
-  <input type="text" class="valorEnv" id="valorEnvp" value="Editarp" name="act" visibility: hidden>
+  <input type="text" class="valorEnv" id="valorEnvp" value="EditarpA" name="act" visibility: hidden>
   <input type="text" class="valorEnv" id="valorEnvp" value="<?=$idi?>" name="idi" visibility: hidden>
 
   <div class="col-4">
